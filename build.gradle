@@ -8,7 +8,6 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-    maven { url "https://maven.wispforest.io" }
     maven { url "https://maven.shedaniel.me" }
 }
 
@@ -23,10 +22,36 @@ dependencies {
     // Fabric
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
 
-    // Other
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+loom {
+    runs {
+        // This adds a new gradle task that runs the datagen API: "gradlew runDatagenClient"
+        datagenClient {
+            inherit client
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+            vmArg "-Dfabric-api.datagen.strict-validation"
+
+            ideConfigGenerated = true
+            runDir "build/datagen"
+        }
+    }
+}
+
+// We should run datagen whenever we build.
+processResources.dependsOn runDatagenClient
+
+// Add the datagenned files into the jar.
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    'src/main/generated'
+            ]
+        }
+    }
 }
 
 processResources {

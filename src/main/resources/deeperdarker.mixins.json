@@ -4,8 +4,11 @@
   "package": "com.kyanite.deeperdarker.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "WardenMixin"
   ],
   "client": [
+  ],
+  "server": [
   ],
   "injectors": {
     "defaultRequire": 1

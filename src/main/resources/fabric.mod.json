@@ -15,6 +15,9 @@
     ],
     "main": [
       "com.kyanite.deeperdarker.DeeperAndDarker"
+    ],
+    "fabric-datagen": [
+      "com.kyanite.deeperdarker.datagen.DDDataGenerators"
     ]
   },
   "mixins": [
