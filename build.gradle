@@ -13,6 +13,7 @@ group = project.maven_group
 
 repositories {
     maven { url "https://maven.shedaniel.me" }
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 }
 
 dependencies {
@@ -26,6 +27,9 @@ dependencies {
     // Fabric
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // GeckoLib
+    modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.17'
 }
 
 loom {
