@@ -1,3 +1,19 @@
 {
-  "itemGroup.deeperdarker.deeperdarkertab": "Deeper And Darker"
+  "item.deeperdarker.heart_of_the_deep": "Heart of the Deep",
+  "item.deeperdarker.reinforced_echo_shard": "Reinforced Echo Shard",
+  "item.deeperdarker.sculk_transmitter": "Sculk Transmitter",
+  "item.deeperdarker.sculk_transmitter.linked": "Linked",
+  "item.deeperdarker.sculk_transmitter.not_container": "Cannot link to block",
+  "item.deeperdarker.sculk_transmitter.not_found": "The linked block is missing or obstructed",
+  "item.deeperdarker.sculk_transmitter.not_linked": "Unlinked",
+  "item.deeperdarker.soul_dust": "Soul Dust",
+  "item.deeperdarker.warden_carapace": "Warden Carapace",
+  "itemGroup.deeperdarker.deeperdarkertab": "Deeper And Darker",
+  "subtitles.ambience.portal.groan": "The Otherside forebodes",
+  "subtitles.entity.snapper.ambient": "Sculk Snapper breathes",
+  "subtitles.entity.snapper.bite": "Sculk Snapper bites",
+  "subtitles.entity.snapper.hurt": "Sculk Snapper hurts",
+  "subtitles.entity.snapper.sniff": "Sculk Snapper sniffs",
+  "subtitles.item.transmitter.link": "Transmitter links",
+  "subtitles.item.transmitter.transmit": "Transmitter transmits"
 }
