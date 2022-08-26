@@ -11,6 +11,6 @@ public class ENLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateLanguages(LanguageConsumer languageConsumer) {
-        languageConsumer.addLanguage("itemGroup.deeperdarker", "Deeper And Darker");
+        languageConsumer.addLanguage("itemGroup.deeperdarker.deeperdarkertab", "Deeper And Darker");
     }
 }
