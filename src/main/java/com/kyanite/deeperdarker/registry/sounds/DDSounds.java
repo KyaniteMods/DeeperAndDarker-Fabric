@@ -13,6 +13,8 @@ public class DDSounds {
     public static final SoundEvent SCULK_STONE_PLACE = register("block.sculk_stone.place");
     public static final SoundEvent SCULK_STONE_STEP = register("block.sculk_stone.step");
 
+    public static final SoundType SCULK_STONE = new SoundType(5, 1, SCULK_STONE_BREAK, SCULK_STONE_STEP, SCULK_STONE_PLACE, SCULK_STONE_HIT, SCULK_STONE_FALL);
+
     // Vase
     public static final SoundEvent VASE_BREAK = register("block.vase.break");
     public static final SoundEvent VASE_FALL = register("block.vase.fall");

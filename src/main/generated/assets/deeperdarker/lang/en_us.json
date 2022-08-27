@@ -1,4 +1,12 @@
 {
+  "block.deeperdarker.cobbled_sculk_stone": "Cobbled Sculk Stone",
+  "block.deeperdarker.cobbled_sculk_stone_slab": "Cobbled Sculk Stone Slab",
+  "block.deeperdarker.cobbled_sculk_stone_stairs": "Cobbled Sculk Stone Stairs",
+  "block.deeperdarker.cobbled_sculk_stone_wall": "Cobbled Sculk Stone Wall",
+  "block.deeperdarker.sculk_stone": "Sculk Stone",
+  "block.deeperdarker.sculk_stone_slab": "Sculk Stone Slab",
+  "block.deeperdarker.sculk_stone_stairs": "Sculk Stone Stairs",
+  "block.deeperdarker.sculk_stone_wall": "Sculk Stone Wall",
   "item.deeperdarker.heart_of_the_deep": "Heart of the Deep",
   "item.deeperdarker.reinforced_echo_shard": "Reinforced Echo Shard",
   "item.deeperdarker.sculk_transmitter": "Sculk Transmitter",
