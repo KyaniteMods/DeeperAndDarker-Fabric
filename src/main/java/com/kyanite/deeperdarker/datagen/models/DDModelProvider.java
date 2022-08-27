@@ -34,6 +34,45 @@ public class DDModelProvider extends FabricModelProvider {
         createSlab(blockStateModelGenerator, DDBlocks.COBBLED_SCULK_STONE_SLAB, DDBlocks.COBBLED_SCULK_STONE);
         createStairs(blockStateModelGenerator, DDBlocks.COBBLED_SCULK_STONE_STAIRS, DDBlocks.COBBLED_SCULK_STONE);
         createWall(blockStateModelGenerator, DDBlocks.COBBLED_SCULK_STONE_WALL, DDBlocks.COBBLED_SCULK_STONE);
+
+        blockStateModelGenerator.createTrivialCube(DDBlocks.POLISHED_SCULK_STONE);
+        createSlab(blockStateModelGenerator, DDBlocks.POLISHED_SCULK_STONE_SLAB, DDBlocks.POLISHED_SCULK_STONE);
+        createStairs(blockStateModelGenerator, DDBlocks.POLISHED_SCULK_STONE_STAIRS, DDBlocks.POLISHED_SCULK_STONE);
+        createWall(blockStateModelGenerator, DDBlocks.POLISHED_SCULK_STONE_WALL, DDBlocks.POLISHED_SCULK_STONE);
+
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_BRICKS);
+        createSlab(blockStateModelGenerator, DDBlocks.SCULK_STONE_BRICK_SLAB, DDBlocks.SCULK_STONE_BRICKS);
+        createStairs(blockStateModelGenerator, DDBlocks.SCULK_STONE_BRICK_STAIRS, DDBlocks.SCULK_STONE_BRICKS);
+        createWall(blockStateModelGenerator, DDBlocks.SCULK_STONE_BRICK_WALL, DDBlocks.SCULK_STONE_BRICKS);
+
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_COAL_ORE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_IRON_ORE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_COPPER_ORE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_GOLD_ORE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_REDSTONE_ORE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_EMERALD_ORE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_LAPIS_ORE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_DIAMOND_ORE);
+
+        blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_GLEAM);
+
+        blockStateModelGenerator.createCrossBlock(DDBlocks.SCULK_VINES, BlockModelGenerators.TintState.NOT_TINTED);
+        blockStateModelGenerator.createCrossBlock(DDBlocks.SCULK_VINES_PLANT, BlockModelGenerators.TintState.NOT_TINTED);
+
+        blockStateModelGenerator.delegateItemModel(DDBlocks.SCULK_VINES, new ResourceLocation(DeeperAndDarker.MOD_ID, "block/sculk_vines_plant"));
+    }
+
+    @Override
+    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+        itemModelGenerator.generateFlatItem(DDItems.HEART_OF_THE_DEEP, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(DDItems.REINFORCED_ECHO_SHARD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(DDItems.WARDEN_CARAPACE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(DDItems.SOUL_DUST, ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerator.generateFlatItem(DDItems.WARDEN_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(DDItems.WARDEN_HELMET, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(DDItems.WARDEN_LEGGINGS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(DDItems.WARDEN_BOOTS, ModelTemplates.FLAT_ITEM);
     }
 
     private void createSlab(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {
@@ -58,22 +97,8 @@ public class DDModelProvider extends FabricModelProvider {
         ResourceLocation resourceLocation2 = ModelTemplates.WALL_LOW_SIDE.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
         ResourceLocation resourceLocation3 = ModelTemplates.WALL_TALL_SIDE.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
         blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createWall(block, resourceLocation, resourceLocation2, resourceLocation3));
+        ResourceLocation resourceLocation4 = ModelTemplates.WALL_INVENTORY.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.delegateItemModel(block, resourceLocation4);
     }
 
-    @Override
-    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-        itemModelGenerator.generateFlatItem(DDItems.HEART_OF_THE_DEEP, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(DDItems.REINFORCED_ECHO_SHARD, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(DDItems.WARDEN_CARAPACE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(DDItems.SOUL_DUST, ModelTemplates.FLAT_ITEM);
-
-        itemModelGenerator.generateFlatItem(DDItems.WARDEN_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(DDItems.WARDEN_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(DDItems.WARDEN_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(DDItems.WARDEN_BOOTS, ModelTemplates.FLAT_ITEM);
-    }
-
-    public ResourceLocation blockLoc(String name) {
-        return new ResourceLocation(DeeperAndDarker.MOD_ID, "block/" + name);
-    }
 }
