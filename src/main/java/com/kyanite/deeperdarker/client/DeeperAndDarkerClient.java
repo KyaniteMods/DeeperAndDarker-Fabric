@@ -17,6 +17,8 @@ public class DeeperAndDarkerClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(DDBlocks.SCULK_VINES, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DDBlocks.SCULK_VINES_PLANT, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(DDBlocks.ECHO_DOOR, RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(DDBlocks.ECHO_TRAPDOOR, RenderType.translucent());
 
         GeoArmorRenderer.registerArmorRenderer(new WardenArmorRenderer(), DDItems.WARDEN_HELMET,
                 DDItems.WARDEN_CHESTPLATE, DDItems.WARDEN_LEGGINGS, DDItems.WARDEN_BOOTS);

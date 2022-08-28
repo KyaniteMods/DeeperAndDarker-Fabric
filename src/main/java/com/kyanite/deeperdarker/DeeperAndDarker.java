@@ -1,6 +1,7 @@
 package com.kyanite.deeperdarker;
 
 import com.kyanite.deeperdarker.registry.blocks.DDBlocks;
+import com.kyanite.deeperdarker.registry.blocks.entity.DDBlockEntityTypes;
 import com.kyanite.deeperdarker.registry.items.DDItems;
 import com.kyanite.deeperdarker.registry.sounds.DDSounds;
 import net.fabricmc.api.ModInitializer;
@@ -18,5 +19,6 @@ public class DeeperAndDarker implements ModInitializer {
         DDItems.registerItems();
         DDBlocks.registerBlocks();
         DDSounds.registerSounds();
+        DDBlockEntityTypes.registerBlockEntities();
     }
 }

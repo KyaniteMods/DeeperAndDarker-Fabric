@@ -6,6 +6,7 @@ import com.kyanite.deeperdarker.registry.items.DDItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.models.BlockModelGenerators.WoodProvider;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.data.models.blockstates.PropertyDispatch;
@@ -15,6 +16,7 @@ import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
 
@@ -25,6 +27,22 @@ public class DDModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+        blockStateModelGenerator.createTrivialCube(DDBlocks.ECHO_PLANKS);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.ECHO_LEAVES);
+
+        blockStateModelGenerator.woodProvider(DDBlocks.ECHO_LOG).logWithHorizontal(DDBlocks.ECHO_LOG).wood(DDBlocks.ECHO_WOOD);
+        blockStateModelGenerator.woodProvider(DDBlocks.STRIPPED_ECHO_LOG).logWithHorizontal(DDBlocks.STRIPPED_ECHO_LOG).wood(DDBlocks.STRIPPED_ECHO_WOOD);
+
+        createSlab(blockStateModelGenerator, DDBlocks.ECHO_SLAB, DDBlocks.ECHO_PLANKS);
+        createStairs(blockStateModelGenerator, DDBlocks.ECHO_STAIRS, DDBlocks.ECHO_PLANKS);
+        createWall(blockStateModelGenerator, DDBlocks.ECHO_WALL, DDBlocks.ECHO_PLANKS);
+        createFence(blockStateModelGenerator, DDBlocks.ECHO_FENCE, DDBlocks.ECHO_PLANKS);
+        createFenceGate(blockStateModelGenerator, DDBlocks.ECHO_FENCE_GATE, DDBlocks.ECHO_PLANKS);
+        createPressurePlate(blockStateModelGenerator, DDBlocks.ECHO_PRESSURE_PLATE, DDBlocks.ECHO_PLANKS);
+        createButton(blockStateModelGenerator, DDBlocks.ECHO_BUTTON, DDBlocks.ECHO_PLANKS);
+        blockStateModelGenerator.createDoor(DDBlocks.ECHO_DOOR);
+        blockStateModelGenerator.createTrapdoor(DDBlocks.ECHO_TRAPDOOR);
+
         blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE);
         createSlab(blockStateModelGenerator, DDBlocks.SCULK_STONE_SLAB, DDBlocks.SCULK_STONE);
         createStairs(blockStateModelGenerator, DDBlocks.SCULK_STONE_STAIRS, DDBlocks.SCULK_STONE);
@@ -55,6 +73,7 @@ public class DDModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE_DIAMOND_ORE);
 
         blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_GLEAM);
+        blockStateModelGenerator.createNonTemplateModelBlock(DDBlocks.SCULK_JAW);
 
         blockStateModelGenerator.createCrossBlock(DDBlocks.SCULK_VINES, BlockModelGenerators.TintState.NOT_TINTED);
         blockStateModelGenerator.createCrossBlock(DDBlocks.SCULK_VINES_PLANT, BlockModelGenerators.TintState.NOT_TINTED);
@@ -81,6 +100,40 @@ public class DDModelProvider extends FabricModelProvider {
         ResourceLocation resourceLocation2 = ModelTemplates.SLAB_BOTTOM.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
         ResourceLocation resourceLocation3 = ModelTemplates.SLAB_TOP.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
         blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSlab(block  , resourceLocation2, resourceLocation3, resourceLocation));
+    }
+
+    private void createButton(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE.get(sourceBlock);
+        ResourceLocation resourceLocation = ModelTemplates.BUTTON.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation2 = ModelTemplates.BUTTON_PRESSED.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createButton(block, resourceLocation, resourceLocation2));
+        ResourceLocation resourceLocation3 = ModelTemplates.BUTTON_INVENTORY.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.delegateItemModel(block, resourceLocation3);
+    }
+
+    private void createPressurePlate(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE.get(sourceBlock);
+        ResourceLocation resourceLocation = ModelTemplates.PRESSURE_PLATE_UP.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation2 = ModelTemplates.PRESSURE_PLATE_DOWN.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createPressurePlate(block, resourceLocation, resourceLocation2));
+    }
+
+    private void createFence(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE.get(sourceBlock);
+        ResourceLocation resourceLocation = ModelTemplates.FENCE_POST.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation2 = ModelTemplates.FENCE_SIDE.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createFence(block, resourceLocation, resourceLocation2));
+        ResourceLocation resourceLocation3 = ModelTemplates.FENCE_INVENTORY.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.delegateItemModel(block, resourceLocation3);
+    }
+
+    private void createFenceGate(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE.get(sourceBlock);
+        ResourceLocation resourceLocation = ModelTemplates.FENCE_GATE_OPEN.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation2 = ModelTemplates.FENCE_GATE_CLOSED.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation3 = ModelTemplates.FENCE_GATE_WALL_OPEN.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        ResourceLocation resourceLocation4 = ModelTemplates.FENCE_GATE_WALL_CLOSED.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createFenceGate(block, resourceLocation, resourceLocation2, resourceLocation3, resourceLocation4));
     }
 
     private void createStairs(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {

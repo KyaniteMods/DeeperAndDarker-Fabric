@@ -13,7 +13,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
-import org.checkerframework.checker.signature.qual.Identifier;
 
 import java.io.IOException;
 import java.nio.file.Files;
