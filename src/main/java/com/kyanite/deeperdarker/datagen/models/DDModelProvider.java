@@ -42,6 +42,8 @@ public class DDModelProvider extends FabricModelProvider {
         createButton(blockStateModelGenerator, DDBlocks.ECHO_BUTTON, DDBlocks.ECHO_PLANKS);
         blockStateModelGenerator.createDoor(DDBlocks.ECHO_DOOR);
         blockStateModelGenerator.createTrapdoor(DDBlocks.ECHO_TRAPDOOR);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.ECHO_SOIL);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.INFESTED_SCULK);
 
         blockStateModelGenerator.createTrivialCube(DDBlocks.SCULK_STONE);
         createSlab(blockStateModelGenerator, DDBlocks.SCULK_STONE_SLAB, DDBlocks.SCULK_STONE);

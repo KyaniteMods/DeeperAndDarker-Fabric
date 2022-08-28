@@ -66,6 +66,8 @@ public class DDBlocks {
 
    // public static final Block ECHO_WALL_SIGN = registerBlock("echo_wall_sign", true, new DDWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK));
 
+    public static final Block ECHO_SOIL = registerBlock("echo_soil", true, new Block(BlockBehaviour.Properties.copy(Blocks.SCULK).strength(0.3f)));
+
     // Sculk Stone
     public static final Block SCULK_STONE = registerBlock("sculk_stone", true, new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(DDSounds.SCULK_STONE).requiresCorrectToolForDrops()));
     public static final Block SCULK_STONE_SLAB = registerBlock("sculk_stone_slab", true, new SlabBlock(BlockBehaviour.Properties.copy(SCULK_STONE)));
@@ -107,6 +109,7 @@ public class DDBlocks {
 
     // Miscellaneous
     public static final Block SCULK_JAW = registerBlock("sculk_jaw", true, new SculkJawBlock(BlockBehaviour.Properties.copy(Blocks.SCULK).strength(6f)));
+    public static final Block INFESTED_SCULK = registerBlock("infested_sculk", true, new SculkBlock(BlockBehaviour.Properties.copy(Blocks.SCULK)));
 
     public static Block registerBlock(String name, boolean createBlockItem, Block block) {
         Block result = Registry.register(Registry.BLOCK, new ResourceLocation(DeeperAndDarker.MOD_ID, name), block);

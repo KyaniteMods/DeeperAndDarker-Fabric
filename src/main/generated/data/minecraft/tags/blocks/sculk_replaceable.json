@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "deeperdarker:infested_sculk",
+    "deeperdarker:sculk_jaw",
+    "#minecraft:leaves"
+  ]
+}
