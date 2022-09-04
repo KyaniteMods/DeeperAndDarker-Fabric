@@ -3,8 +3,10 @@ package com.kyanite.deeperdarker.registry.items;
 import com.kyanite.deeperdarker.DeeperAndDarker;
 import com.kyanite.deeperdarker.miscellaneous.DDArmorMaterials;
 import com.kyanite.deeperdarker.miscellaneous.DDCreativeModeTab;
+import com.kyanite.deeperdarker.miscellaneous.DDTypes;
 import com.kyanite.deeperdarker.registry.entities.DDEntities;
 import com.kyanite.deeperdarker.registry.entities.custom.DDBoat;
+import com.kyanite.deeperdarker.registry.items.custom.CustomHoeItem;
 import com.kyanite.deeperdarker.registry.items.custom.DDBoatItem;
 import com.kyanite.deeperdarker.registry.items.custom.SculkTransmitterItem;
 import com.kyanite.deeperdarker.registry.items.custom.WardenArmorItem;
@@ -12,10 +14,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,6 +40,11 @@ public class DDItems {
 
     public static final Item ECHO_BOAT = registerItem("echo_boat", new DDBoatItem(false, DDBoat.Type.ECHO, new FabricItemSettings().group(DDCreativeModeTab.TAB).rarity(Rarity.EPIC).fireResistant()));
     public static final Item ECHO_CHEST_BOAT = registerItem("echo_chest_boat", new DDBoatItem(true, DDBoat.Type.ECHO, new FabricItemSettings().group(DDCreativeModeTab.TAB).rarity(Rarity.EPIC).fireResistant()));
+    public static final Item WARDEN_SWORD = registerItem("warden_sword",  new SwordItem(DDTypes.WARDEN, 3, -2.4F, new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(DDCreativeModeTab.TAB)));
+    public static final Item WARDEN_SHOVEL = registerItem("warden_shovel",  new ShovelItem(DDTypes.WARDEN, 1.5F, -3.0F, new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(DDCreativeModeTab.TAB)));
+    public static final Item WARDEN_PICKAXE = registerItem("warden_pickaxe",  new PickaxeItem(DDTypes.WARDEN, 1, -2.8F, new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(DDCreativeModeTab.TAB)));
+    public static final Item WARDEN_AXE = registerItem("warden_axe", new AxeItem(DDTypes.WARDEN, 7.0F, -3.0F, new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(DDCreativeModeTab.TAB)));
+    public static final Item WARDEN_HOE = registerItem("warden_hoe",  new CustomHoeItem(DDTypes.WARDEN, -4, 0, new Item.Properties().fireResistant().rarity(Rarity.EPIC).tab(DDCreativeModeTab.TAB)));
 
     public static Item registerItem(String name, Item item) {
         Item result = Registry.register(Registry.ITEM, new ResourceLocation(DeeperAndDarker.MOD_ID, name), item);
