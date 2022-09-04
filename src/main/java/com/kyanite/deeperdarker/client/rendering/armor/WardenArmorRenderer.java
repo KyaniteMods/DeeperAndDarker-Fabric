@@ -28,13 +28,5 @@ public class WardenArmorRenderer extends GeoArmorRenderer<WardenArmorItem> {
     public void render(float partialTicks, PoseStack stack, VertexConsumer bufferIn, int packedLightIn) {
         super.render(partialTicks, stack, bufferIn, packedLightIn);
         IBone waistBone = getAndHideBone("armorWaist");
-        waistBone.setHidden(true);
-
-        if(Minecraft.getInstance().player != null) {
-            Player plr = Minecraft.getInstance().player;
-            if(plr.getInventory().getArmor(EquipmentSlot.LEGS.getIndex()).getItem() == DDItems.WARDEN_LEGGINGS) {
-                waistBone.setHidden(false);
-            }
-        }
     }
 }

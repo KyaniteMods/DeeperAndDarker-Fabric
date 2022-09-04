@@ -33,6 +33,10 @@ public class ENLanguageProvider extends FabricLanguageProvider {
         add(languageConsumer,"itemGroup.deeperdarker.deeperdarkertab", "Deeper And Darker");
 
         add(languageConsumer,"advancements.deeperdarker.root.title", "Sculk Story");
+        add(languageConsumer,"advancements.deeperdarker.enter_otherside.title", "Below the Bedrock");
+        add(languageConsumer, "advancements.deeperdarker.enter_otherside.description", "Deep below the bedrock... the darkness awaits");
+        add(languageConsumer, "advancements.deeperdarker.explore_otherside.title", "Echolocation");
+        add(languageConsumer, "advancements.deeperdarker.explore_otherside.description", "Explore all Otherside biomes");
         add(languageConsumer,"advancements.deeperdarker.root.description", "You feel something pulling you toward the underground...");
         add(languageConsumer,"advancements.deeperdarker.obtain_membrane.title", "Sleepless Nights");
         add(languageConsumer,"advancements.deeperdarker.obtain_membrane.description", "Slay a monster of the night sky");

@@ -1,7 +1,10 @@
 package com.kyanite.deeperdarker.datagen.advancements;
 
 import com.kyanite.deeperdarker.DeeperAndDarker;
+import com.kyanite.deeperdarker.registry.blocks.DDBlocks;
 import com.kyanite.deeperdarker.registry.items.DDItems;
+import com.kyanite.deeperdarker.registry.world.biomes.OthersideBiomes;
+import com.kyanite.deeperdarker.registry.world.dimension.DDDimensions;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
@@ -58,6 +61,22 @@ public class DDAdvancementProvider extends FabricAdvancementProvider {
                 .rewards(AdvancementRewards.Builder.experience(500))
                 .addCriterion("warden", InventoryChangeTrigger.TriggerInstance.hasItems(DDItems.HEART_OF_THE_DEEP))
                 .save(consumer, path + "kill_warden");
+
+        Advancement enterOtherside = Advancement.Builder.advancement().parent(killWarden).display(Blocks.REINFORCED_DEEPSLATE,
+                        Component.translatable(id + "enter_otherside.title"),
+                        Component.translatable(id + "enter_otherside.description"),
+                        null, FrameType.GOAL, true, true, false)
+                .addCriterion("otherside", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(DDDimensions.OTHERSIDE_LEVEL))
+                .save(consumer, path + "enter_otherside");
+
+        Advancement.Builder.advancement().parent(enterOtherside).display(DDBlocks.ECHO_LOG,
+                        Component.translatable(id + "explore_otherside.title"),
+                        Component.translatable(id + "explore_otherside.description"),
+                        null, FrameType.CHALLENGE, true, true, false)
+                .rewards(AdvancementRewards.Builder.experience(120))
+                .addCriterion("echoing_forest", PlayerTrigger.TriggerInstance.located(LocationPredicate.inBiome(OthersideBiomes.ECHOING_FOREST)))
+                .addCriterion("otherside_deeplands", PlayerTrigger.TriggerInstance.located(LocationPredicate.inBiome(OthersideBiomes.OTHERSIDE_DEEPLANDS)))
+                .requirements(RequirementsStrategy.AND).save(consumer, path + "explore_otherside");
 
         Advancement.Builder.advancement().parent(killWarden).display(DDItems.REINFORCED_ECHO_SHARD,
                         Component.translatable(id + "reinforce_shard.title"),
