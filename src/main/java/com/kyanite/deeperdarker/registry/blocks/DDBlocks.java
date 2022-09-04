@@ -2,9 +2,7 @@ package com.kyanite.deeperdarker.registry.blocks;
 
 import com.kyanite.deeperdarker.DeeperAndDarker;
 import com.kyanite.deeperdarker.miscellaneous.DDCreativeModeTab;
-import com.kyanite.deeperdarker.registry.blocks.custom.DDStandingSignBlock;
-import com.kyanite.deeperdarker.registry.blocks.custom.DDWallSignBlock;
-import com.kyanite.deeperdarker.registry.blocks.custom.SculkJawBlock;
+import com.kyanite.deeperdarker.registry.blocks.custom.*;
 import com.kyanite.deeperdarker.registry.blocks.custom.vines.sculkvines.SculkVinesBlock;
 import com.kyanite.deeperdarker.registry.blocks.custom.vines.sculkvines.SculkVinesPlantBlock;
 import com.kyanite.deeperdarker.registry.items.DDItems;
@@ -109,7 +107,9 @@ public class DDBlocks {
 
     // Miscellaneous
     public static final Block SCULK_JAW = registerBlock("sculk_jaw", true, new SculkJawBlock(BlockBehaviour.Properties.copy(Blocks.SCULK).strength(6f)));
-    public static final Block INFESTED_SCULK = registerBlock("infested_sculk", true, new SculkBlock(BlockBehaviour.Properties.copy(Blocks.SCULK)));
+    public static final Block INFESTED_SCULK = registerBlock("infested_sculk", true, new InfestedSculkBlock(BlockBehaviour.Properties.copy(Blocks.SCULK)));
+    public static final Block ANCIENT_VASE = registerBlock("ancient_vase", true, new AncientVaseBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(2f, 6f).sound(DDSounds.VASE).noOcclusion()));
+    public static final Block OTHERSIDE_PORTAL = registerBlock("otherside_portal", false, new OthersidePortalBlock((BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL).lightLevel(state -> 5).noLootTable())));
 
     public static Block registerBlock(String name, boolean createBlockItem, Block block) {
         Block result = Registry.register(Registry.BLOCK, new ResourceLocation(DeeperAndDarker.MOD_ID, name), block);

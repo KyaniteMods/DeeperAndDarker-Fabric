@@ -4,9 +4,18 @@
   "package": "com.kyanite.deeperdarker.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "WardenMixin"
+    "WardenMixin",
+    "PhantomRendererMixin",
+    "SculkSpreadMixin",
+    "PhantomMixin",
+    "SculkSensorMixin",
+    "VibrationListenerMixin",
+    "ContainerMixin",
+    "StonecutterMixin",
+    "ChestEntityMixin"
   ],
   "client": [
+    "WardenAnimations"
   ],
   "server": [
   ],

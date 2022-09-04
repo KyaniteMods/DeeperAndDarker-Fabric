@@ -14,6 +14,7 @@ group = project.maven_group
 repositories {
     maven { url "https://maven.shedaniel.me" }
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven { url = "https://maven.kyrptonaught.dev" }
 }
 
 dependencies {
@@ -30,6 +31,9 @@ dependencies {
 
     // GeckoLib
     modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.17'
+
+    // Portal API
+    modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta52-1.19'
 }
 
 loom {

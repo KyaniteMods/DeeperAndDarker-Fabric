@@ -3,8 +3,10 @@ package com.kyanite.deeperdarker.datagen.lang;
 import com.kyanite.deeperdarker.miscellaneous.datagen_lang.FabricLanguageProvider;
 import com.kyanite.deeperdarker.miscellaneous.datagen_lang.LanguageConsumer;
 import com.kyanite.deeperdarker.registry.blocks.DDBlocks;
+import com.kyanite.deeperdarker.registry.entities.DDEntities;
 import com.kyanite.deeperdarker.registry.items.DDItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -26,6 +28,7 @@ public class ENLanguageProvider extends FabricLanguageProvider {
     public void generateLanguages(LanguageConsumer languageConsumer) {
         for(Map.Entry<String, Item> item : DDItems.REGISTERED_ITEMS.entrySet()) if(!(item.getValue() instanceof BlockItem)) languageConsumer.addLanguage(item.getValue(), convertToName(item.getKey()));
         for(Map.Entry<String, Block> block : DDBlocks.BLOCKS.entrySet()) languageConsumer.addLanguage(block.getValue(), convertToName(block.getKey()));
+        for(Map.Entry<String, EntityType> entity : DDEntities.ENTITIES.entrySet()) languageConsumer.addLanguage(entity.getValue(), convertToName(entity.getKey()));
 
         add(languageConsumer,"itemGroup.deeperdarker.deeperdarkertab", "Deeper And Darker");
 

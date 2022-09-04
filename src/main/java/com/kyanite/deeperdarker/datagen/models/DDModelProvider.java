@@ -1,10 +1,12 @@
 package com.kyanite.deeperdarker.datagen.models;
 
+import com.eliotlash.mclib.math.functions.classic.Mod;
 import com.kyanite.deeperdarker.DeeperAndDarker;
 import com.kyanite.deeperdarker.registry.blocks.DDBlocks;
 import com.kyanite.deeperdarker.registry.items.DDItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.client.model.Model;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.BlockModelGenerators.WoodProvider;
 import net.minecraft.data.models.ItemModelGenerators;
@@ -14,6 +16,7 @@ import net.minecraft.data.models.blockstates.Variant;
 import net.minecraft.data.models.blockstates.VariantProperties;
 import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
@@ -29,6 +32,8 @@ public class DDModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
         blockStateModelGenerator.createTrivialCube(DDBlocks.ECHO_PLANKS);
         blockStateModelGenerator.createTrivialCube(DDBlocks.ECHO_LEAVES);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.ANCIENT_VASE);
+        blockStateModelGenerator.createTrivialCube(DDBlocks.OTHERSIDE_PORTAL);
 
         blockStateModelGenerator.woodProvider(DDBlocks.ECHO_LOG).logWithHorizontal(DDBlocks.ECHO_LOG).wood(DDBlocks.ECHO_WOOD);
         blockStateModelGenerator.woodProvider(DDBlocks.STRIPPED_ECHO_LOG).logWithHorizontal(DDBlocks.STRIPPED_ECHO_LOG).wood(DDBlocks.STRIPPED_ECHO_WOOD);
@@ -94,8 +99,10 @@ public class DDModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(DDItems.WARDEN_HELMET, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(DDItems.WARDEN_LEGGINGS, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(DDItems.WARDEN_BOOTS, ModelTemplates.FLAT_ITEM);
-    }
 
+        itemModelGenerator.generateFlatItem(DDItems.ECHO_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(DDItems.ECHO_BOAT, ModelTemplates.FLAT_ITEM);
+    }
     private void createSlab(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {
         ResourceLocation resourceLocation = ModelLocationUtils.getModelLocation(sourceBlock);
         TexturedModel texturedModel = TexturedModel.CUBE.get(sourceBlock);
