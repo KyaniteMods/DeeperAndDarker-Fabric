@@ -87,7 +87,8 @@ public class DDModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createCrossBlock(DDBlocks.SCULK_VINES, BlockModelGenerators.TintState.NOT_TINTED);
         blockStateModelGenerator.createCrossBlock(DDBlocks.SCULK_VINES_PLANT, BlockModelGenerators.TintState.NOT_TINTED);
 
-        blockStateModelGenerator.delegateItemModel(DDBlocks.SCULK_VINES, new ResourceLocation(DeeperAndDarker.MOD_ID, "block/sculk_vines_plant"));
+        blockStateModelGenerator.delegateItemModel(DDBlocks.SCULK_VINES, new ResourceLocation(DeeperAndDarker.MOD_ID, "item/sculk_vines_plant"));
+        blockStateModelGenerator.delegateItemModel(DDBlocks.ECHO_SIGN_ITEM, new ResourceLocation(DeeperAndDarker.MOD_ID, "block/echo_sign"));
     }
 
     @Override

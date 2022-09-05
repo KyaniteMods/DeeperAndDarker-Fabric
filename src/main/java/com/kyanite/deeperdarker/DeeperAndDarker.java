@@ -1,5 +1,6 @@
 package com.kyanite.deeperdarker;
 
+import com.kyanite.deeperdarker.miscellaneous.DDTypes;
 import com.kyanite.deeperdarker.registry.blocks.DDBlocks;
 import com.kyanite.deeperdarker.registry.blocks.entity.DDBlockEntityTypes;
 import com.kyanite.deeperdarker.registry.effects.DDEffects;
@@ -37,6 +38,7 @@ public class DeeperAndDarker implements ModInitializer {
     public void onInitialize() {
         GeckoLib.initialize();
 
+        DDTypes.registerTypes();
         // Features
         DDFeatures.registerFeatures();
         DDConfiguredFeatures.registerConfiguredFeatures();
@@ -46,10 +48,9 @@ public class DeeperAndDarker implements ModInitializer {
 
         // Content
         DDEntities.registerEntities();
-        DDItems.registerItems();
         DDBlocks.registerBlocks();
+        DDItems.registerItems();
         DDSounds.registerSounds();
-        DDBlockEntityTypes.registerBlockEntities();
         DDEnchantments.registerEnchantments();
         DDEffects.registerEffects();
 

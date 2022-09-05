@@ -17,6 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -60,11 +61,9 @@ public class DDBlocks {
     public static final Block ECHO_PRESSURE_PLATE = registerBlock("echo_pressure_plate", true, new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE)));
     public static final Block ECHO_DOOR = registerBlock("echo_door", true, new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR)));
     public static final Block ECHO_TRAPDOOR = registerBlock("echo_trapdoor", true, new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR)));
-
-    public static final Block ECHO_SIGN = registerBlock("echo_sign", false, new StandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), DDTypes.ECHO));
-
-    public static final Block ECHO_WALL_SIGN = registerBlock("echo_wall_sign", false, new WallSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(ECHO_SIGN), DDTypes.ECHO));
-
+    public static final Block ECHO_WALL_SIGN = new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), DDTypes.ECHO);
+    public static Item ECHO_SIGN_ITEM;
+    public static final Block ECHO_SIGN = registerSign("echo_sign", "echo_wall_sign", new StandingSignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), DDTypes.ECHO), ECHO_WALL_SIGN, ECHO_SIGN_ITEM);
     public static final Block ECHO_SOIL = registerBlock("echo_soil", true, new Block(BlockBehaviour.Properties.copy(Blocks.SCULK).strength(0.3f)));
 
     // Sculk Stone
@@ -117,6 +116,15 @@ public class DDBlocks {
         BLOCKS.put(name, result);
         if(createBlockItem) DDItems.registerItem(name, new BlockItem(result, new FabricItemSettings().group(DDCreativeModeTab.TAB)));
         return result;
+    }
+
+    public static Block registerSign(String name, String wallName, Block block, Block wallBlock, Item item) {
+        Block standing = Registry.register(Registry.BLOCK, new ResourceLocation(DeeperAndDarker.MOD_ID, name), block);
+        Block wall = Registry.register(Registry.BLOCK, new ResourceLocation(DeeperAndDarker.MOD_ID, wallName), wallBlock);
+        BLOCKS.put(name, standing);
+        BLOCKS.put(wallName, wall);
+        item = DDItems.registerItem(name, new SignItem(new FabricItemSettings().maxCount(16).group(DDCreativeModeTab.TAB), standing, wall));
+        return standing;
     }
 
     public static RotatedPillarBlock log(MaterialColor materialColor, MaterialColor materialColor2) {

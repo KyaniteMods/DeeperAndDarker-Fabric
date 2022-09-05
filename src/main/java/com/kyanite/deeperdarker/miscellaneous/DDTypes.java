@@ -41,4 +41,7 @@ public class DDTypes {
             return Ingredient.of(DDItems.REINFORCED_ECHO_SHARD);
         }
     };
+
+    public static void registerTypes() {
+    }
 }

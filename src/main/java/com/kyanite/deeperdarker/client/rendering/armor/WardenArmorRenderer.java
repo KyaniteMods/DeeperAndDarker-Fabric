@@ -1,5 +1,6 @@
 package com.kyanite.deeperdarker.client.rendering.armor;
 
+import com.kyanite.deeperdarker.DeeperAndDarker;
 import com.kyanite.deeperdarker.registry.items.DDItems;
 import com.kyanite.deeperdarker.registry.items.custom.WardenArmorItem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -28,5 +29,6 @@ public class WardenArmorRenderer extends GeoArmorRenderer<WardenArmorItem> {
     public void render(float partialTicks, PoseStack stack, VertexConsumer bufferIn, int packedLightIn) {
         super.render(partialTicks, stack, bufferIn, packedLightIn);
         IBone waistBone = getAndHideBone("armorWaist");
+        DeeperAndDarker.LOGGER.info(currentItemStack.getDescriptionId());
     }
 }
