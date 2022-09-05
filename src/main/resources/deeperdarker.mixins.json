@@ -12,7 +12,9 @@
     "VibrationListenerMixin",
     "ContainerMixin",
     "StonecutterMixin",
-    "ChestEntityMixin"
+    "ChestEntityMixin",
+    "WoodTypeAccessor",
+    "BlockEntityTypeMixin"
   ],
   "client": [
     "WardenAnimations"

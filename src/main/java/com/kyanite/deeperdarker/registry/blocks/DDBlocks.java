@@ -2,6 +2,7 @@ package com.kyanite.deeperdarker.registry.blocks;
 
 import com.kyanite.deeperdarker.DeeperAndDarker;
 import com.kyanite.deeperdarker.miscellaneous.DDCreativeModeTab;
+import com.kyanite.deeperdarker.miscellaneous.DDTypes;
 import com.kyanite.deeperdarker.registry.blocks.custom.*;
 import com.kyanite.deeperdarker.registry.blocks.custom.vines.sculkvines.SculkVinesBlock;
 import com.kyanite.deeperdarker.registry.blocks.custom.vines.sculkvines.SculkVinesPlantBlock;
@@ -60,9 +61,9 @@ public class DDBlocks {
     public static final Block ECHO_DOOR = registerBlock("echo_door", true, new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR)));
     public static final Block ECHO_TRAPDOOR = registerBlock("echo_trapdoor", true, new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR)));
 
-   // public static final Block ECHO_SIGN = registerBlock("echo_sign", true, new DDStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), WoodType.OAK));
+    public static final Block ECHO_SIGN = registerBlock("echo_sign", false, new StandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), DDTypes.ECHO));
 
-   // public static final Block ECHO_WALL_SIGN = registerBlock("echo_wall_sign", true, new DDWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK));
+    public static final Block ECHO_WALL_SIGN = registerBlock("echo_wall_sign", false, new WallSignBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(ECHO_SIGN), DDTypes.ECHO));
 
     public static final Block ECHO_SOIL = registerBlock("echo_soil", true, new Block(BlockBehaviour.Properties.copy(Blocks.SCULK).strength(0.3f)));
 

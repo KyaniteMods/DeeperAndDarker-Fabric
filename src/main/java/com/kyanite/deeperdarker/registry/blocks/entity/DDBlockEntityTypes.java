@@ -13,8 +13,8 @@ public class DDBlockEntityTypes {
 
     public static void registerBlockEntities() {
         DeeperAndDarker.LOGGER.info("Deeper And Darker block entities have been registered");
-   //     SIGN_BLOCK_ENTITIES = Registry.register(Registry.BLOCK_ENTITY_TYPE,
-   //             new ResourceLocation(DeeperAndDarker.MOD_ID, "sign_block_entities"),
-      //          FabricBlockEntityTypeBuilder.create(DDSignBlockEntity::new, DDBlocks.ECHO_WALL_SIGN, DDBlocks.ECHO_SIGN).build(null));
+        SIGN_BLOCK_ENTITIES = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+               new ResourceLocation(DeeperAndDarker.MOD_ID, "sign_block_entities"),
+                FabricBlockEntityTypeBuilder.create(DDSignBlockEntity::new, DDBlocks.ECHO_WALL_SIGN, DDBlocks.ECHO_SIGN).build(null));
     }
 }

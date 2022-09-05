@@ -4,6 +4,7 @@ import com.kyanite.deeperdarker.DeeperAndDarker;
 import com.kyanite.deeperdarker.miscellaneous.DDArmorMaterials;
 import com.kyanite.deeperdarker.miscellaneous.DDCreativeModeTab;
 import com.kyanite.deeperdarker.miscellaneous.DDTypes;
+import com.kyanite.deeperdarker.registry.blocks.DDBlocks;
 import com.kyanite.deeperdarker.registry.entities.DDEntities;
 import com.kyanite.deeperdarker.registry.entities.custom.DDBoat;
 import com.kyanite.deeperdarker.registry.items.custom.CustomHoeItem;
@@ -15,6 +16,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +25,8 @@ import java.util.Map;
 
 public class DDItems {
     public static final Map<String, Item> REGISTERED_ITEMS = new HashMap<>();
+
+    public static final Item ECHO_SIGN = registerItem("echo_sign", new SignItem((new Item.Properties()).stacksTo(16).tab(DDCreativeModeTab.TAB), DDBlocks.ECHO_SIGN, DDBlocks.ECHO_WALL_SIGN));
     public static final Item HEART_OF_THE_DEEP = registerItem("heart_of_the_deep", new Item(new FabricItemSettings().group(DDCreativeModeTab.TAB).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
     public static final Item REINFORCED_ECHO_SHARD = registerItem("reinforced_echo_shard", new Item(new FabricItemSettings().group(DDCreativeModeTab.TAB).rarity(Rarity.EPIC).fireResistant()));
     public static final Item WARDEN_CARAPACE = registerItem("warden_carapace", new Item(new FabricItemSettings().group(DDCreativeModeTab.TAB).rarity(Rarity.EPIC).fireResistant()));

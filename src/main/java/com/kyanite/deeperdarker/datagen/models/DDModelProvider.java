@@ -30,6 +30,8 @@ public class DDModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+        createSign(blockStateModelGenerator, DDBlocks.ECHO_SIGN, DDBlocks.ECHO_WALL_SIGN, DDBlocks.ECHO_PLANKS);
+
         blockStateModelGenerator.createTrivialCube(DDBlocks.ECHO_PLANKS);
         blockStateModelGenerator.createTrivialCube(DDBlocks.ECHO_LEAVES);
         blockStateModelGenerator.createTrivialCube(DDBlocks.ANCIENT_VASE);
@@ -140,6 +142,15 @@ public class DDModelProvider extends FabricModelProvider {
         blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createFence(block, resourceLocation, resourceLocation2));
         ResourceLocation resourceLocation3 = ModelTemplates.FENCE_INVENTORY.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
         blockModelGenerators.delegateItemModel(block, resourceLocation3);
+    }
+
+    private void createSign(BlockModelGenerators blockModelGenerators, Block block, Block block2, Block sourceBlock) {
+        TexturedModel texturedModel = TexturedModel.CUBE.get(sourceBlock);
+        ResourceLocation resourceLocation = ModelTemplates.PARTICLE_ONLY.create(block, texturedModel.getMapping(), blockModelGenerators.modelOutput);
+        blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, resourceLocation));
+        blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block2, resourceLocation));
+        blockModelGenerators.createSimpleFlatItemModel(block.asItem());
+        blockModelGenerators.skipAutoItemBlock(block2);
     }
 
     private void createFenceGate(BlockModelGenerators blockModelGenerators, Block block, Block sourceBlock) {

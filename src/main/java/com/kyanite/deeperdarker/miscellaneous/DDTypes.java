@@ -1,5 +1,6 @@
 package com.kyanite.deeperdarker.miscellaneous;
 
+import com.kyanite.deeperdarker.mixin.WoodTypeAccessor;
 import com.kyanite.deeperdarker.registry.items.DDItems;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.item.Tier;
@@ -8,6 +9,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class DDTypes {
     public static final MobType SCULK = new MobType();
+    public static WoodType ECHO = WoodTypeAccessor.registerNew(WoodTypeAccessor.newWoodType("echo"));
     public static final Tier WARDEN = new Tier() {
         @Override
         public int getUses() {
