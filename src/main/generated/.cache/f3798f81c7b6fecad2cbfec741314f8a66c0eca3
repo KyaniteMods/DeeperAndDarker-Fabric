@@ -1,4 +1,4 @@
-// 1.19.2	2022-09-05T19:18:03.6689313	Models
+// 1.19.2	2022-09-05T21:06:06.0630956	Models
 b42352d0ed02a0a3b34995ec26178868a901c665 assets\deeperdarker\models\block\echo_wall_side.json
 3bc56f29d8c2702b6040020d5ec5d47bf43a4f6a assets\deeperdarker\models\block\sculk_stone_brick_wall_side_tall.json
 ff0ad82277459bbd5d5be49a64a5b28c44e020c3 assets\deeperdarker\models\block\polished_sculk_stone_wall_side_tall.json
@@ -161,6 +161,7 @@ f50e644d9d0135d9d04c0af94e206ce812dca31e assets\deeperdarker\models\item\sculk_s
 7ce70d1bf2079fc4cccb7c42f352ca956a974627 assets\deeperdarker\models\block\echo_pressure_plate_down.json
 e94fc45e791c65302fcc908ab5d32adc564c5e88 assets\deeperdarker\blockstates\stripped_echo_log.json
 f4aefcbbeb4a54c95787b0c98e4d4cc1d8031270 assets\deeperdarker\blockstates\sculk_stone_copper_ore.json
+dfa96b7647fd60a7cbf8f12e16e854cd0773ba0c assets\deeperdarker\models\item\soul_dust.json
 08c97bdf45baba1cba02ee839e590a8341662619 assets\deeperdarker\models\block\sculk_stone_diamond_ore.json
 a7b89be8d8e89853282329e62f2e780bc72d7c15 assets\deeperdarker\models\block\sculk_stone_brick_stairs_inner.json
 0b44e8e04f9bfff7a8ce0a2fca010f4e063004f8 assets\deeperdarker\models\block\echo_slab_top.json

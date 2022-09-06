@@ -7,7 +7,7 @@
   "authors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/deeperdarker/icon.png",
+  "icon": "assets/deeperdarker/banner.png",
   "environment": "*",
   "entrypoints": {
     "client": [

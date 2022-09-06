@@ -5,10 +5,12 @@ import com.kyanite.deeperdarker.miscellaneous.datagen_lang.LanguageConsumer;
 import com.kyanite.deeperdarker.registry.blocks.DDBlocks;
 import com.kyanite.deeperdarker.registry.entities.DDEntities;
 import com.kyanite.deeperdarker.registry.items.DDItems;
+import com.kyanite.deeperdarker.registry.world.biomes.OthersideBiomes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 import java.util.Map;
@@ -29,6 +31,9 @@ public class ENLanguageProvider extends FabricLanguageProvider {
         for(Map.Entry<String, Item> item : DDItems.REGISTERED_ITEMS.entrySet()) if(!(item.getValue() instanceof BlockItem)) languageConsumer.addLanguage(item.getValue(), convertToName(item.getKey()));
         for(Map.Entry<String, Block> block : DDBlocks.BLOCKS.entrySet()) languageConsumer.addLanguage(block.getValue(), convertToName(block.getKey()));
         for(Map.Entry<String, EntityType> entity : DDEntities.ENTITIES.entrySet()) languageConsumer.addLanguage(entity.getValue(), convertToName(entity.getKey()));
+
+        languageConsumer.addLanguage(OthersideBiomes.OTHERSIDE_DEEPLANDS.registry(), convertToName(OthersideBiomes.OTHERSIDE_DEEPLANDS.toString()));
+        languageConsumer.addLanguage(OthersideBiomes.ECHOING_FOREST.registry(), convertToName(OthersideBiomes.ECHOING_FOREST.toString()));
 
         add(languageConsumer,"itemGroup.deeperdarker.deeperdarkertab", "Deeper And Darker");
 
@@ -52,6 +57,14 @@ public class ENLanguageProvider extends FabricLanguageProvider {
         add(languageConsumer,"advancements.deeperdarker.reinforce_shard.description", "Reinforce an Echo Shard");
         add(languageConsumer,"advancements.deeperdarker.obtain_transmitter.title", "Remote Storage");
         add(languageConsumer,"advancements.deeperdarker.obtain_transmitter.description", "Acquire a Sculk Transmitter");
+
+        add(languageConsumer,"effect.deeperdarker.sculk_affinity", "Sculk Affinity");
+        add(languageConsumer,"effect.deeperdarker.sculk_affinity.description", "Prevents the player from causing any vibrations.");
+
+        add(languageConsumer,"item.minecraft.potion.effect.sculk_affinity", "Potion of Sculk Affinity");
+        add(languageConsumer,"item.minecraft.splash_potion.effect.sculk_affinity", "Splash Potion of Sculk Affinity");
+        add(languageConsumer,"item.minecraft.lingering_potion.effect.sculk_affinity", "Lingering Potion of Sculk Affinity");
+        add(languageConsumer,"item.minecraft.tipped_arrow.effect.sculk_affinity", "Arrow of Sculk Affinity");
 
         add(languageConsumer,"subtitles.ambience.portal.groan", "The Otherside forebodes");
         add(languageConsumer,"subtitles.entity.snapper.ambient", "Sculk Snapper breathes");

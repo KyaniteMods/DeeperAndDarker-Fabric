@@ -1,10 +1,11 @@
-// 1.19.2	2022-09-05T19:18:03.6669307	Tags for minecraft:block
+// 1.19.2	2022-09-05T21:06:06.0730948	Tags for minecraft:block
 a79df4671755271345962c0aa23680929668ccea data\minecraft\tags\blocks\planks.json
-fcf430a2de16a25784832c011bf0cfdf097c3bbf data\minecraft\tags\blocks\sculk_replaceable.json
+83ae177b74b1b78b11ac577901814058b5060de1 data\minecraft\tags\blocks\sculk_replaceable.json
 666498abb0b9ee22c5239c4a897b6f03923b6ec6 data\minecraft\tags\blocks\wooden_fences.json
 a4a26cabae188169c902530ffe27faea3507b5e4 data\minecraft\tags\blocks\emerald_ores.json
-98db1d87fb9ddbe8a6404014f5dbfbae104212cc data\minecraft\tags\blocks\mineable\pickaxe.json
+ed832d68da920932fe75a556d74b65de13c4aaaa data\minecraft\tags\blocks\mineable\pickaxe.json
 bb4257bb3703345fa63da7b4c5bb02f9a1356e6a data\minecraft\tags\blocks\leaves.json
+ad4068cbc07d6695e52fe55e47e251e2a62b6c33 data\minecraft\tags\blocks\wall_signs.json
 cc8be56656b9b01f639d38e0c2d412a07a7a4642 data\minecraft\tags\blocks\redstone_ores.json
 8e66882b02bccb405f9f39eb2da3772f2b3cdf14 data\minecraft\tags\blocks\wooden_slabs.json
 8e26c0323bf0de4f4b3ee9502464052485263c0e data\minecraft\tags\blocks\walls.json
@@ -18,10 +19,11 @@ a0f8b4016a9a46eec79232fa43a9dcaa48f8ebe3 data\minecraft\tags\blocks\sand.json
 177c11a0fc6c31a3a9c8e486e22e2d8614580111 data\deeperdarker\tags\blocks\stripped_logs.json
 d5f762c9a3855d3e749214b235b6bdeb07745ad1 data\deeperdarker\tags\blocks\wood.json
 b8cadcc7a45e9fb7e52ab939ddff063ad8608e8c data\minecraft\tags\blocks\slabs.json
-af3b30587da63af76fa3084ed397c10df1914765 data\minecraft\tags\blocks\mineable\hoe.json
+7a40b2a1893eab059d0cc2368aaa1c559cd6806f data\minecraft\tags\blocks\mineable\hoe.json
 0b611850fa88d0382e3e8016186b458466af19fb data\minecraft\tags\blocks\wooden_buttons.json
 a0f8b4016a9a46eec79232fa43a9dcaa48f8ebe3 data\minecraft\tags\blocks\mineable\shovel.json
 4153a807a665d99890ad7eac8f9a15080a466e6f data\minecraft\tags\blocks\lapis_ores.json
+8787510abc7136bd0e101f9597e4c972f261ec32 data\minecraft\tags\blocks\standing_signs.json
 d0b222d759fe0c881261b06d778a3563df87b7db data\minecraft\tags\blocks\wooden_doors.json
 f05849880cdbeeabfa8cf9a677718a7ea229b91a data\minecraft\tags\blocks\wooden_trapdoors.json
 38d08abae78485e0b8c873c6ea2f622b88298e7d data\minecraft\tags\blocks\climbable.json
@@ -33,3 +35,4 @@ e4f0663a6c86a07b8e09c2c1396cb9ac4ace8756 data\minecraft\tags\blocks\stairs.json
 698bf629a10f955a12b7fa973872188db2bcb5c4 data\minecraft\tags\blocks\diamond_ores.json
 67465033f6856e41a88bd8895a6406aa84188ee8 data\minecraft\tags\blocks\logs_that_burn.json
 3d86f9f9f37d051d1def6726029b747566291012 data\minecraft\tags\blocks\sculk_replaceable_world_gen.json
+4c32a9c25e5ffe915daac210388a352a9e6cae02 data\minecraft\tags\blocks\portals.json

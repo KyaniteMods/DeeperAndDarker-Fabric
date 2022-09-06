@@ -1,1 +1,5 @@
-// 1.19.2	2022-09-05T19:18:03.6659301	Tags for minecraft:item
+// 1.19.2	2022-09-05T21:06:06.0741012	Tags for minecraft:item
+dce63ae58a64e342ee05ee1e2776d3b8f80ab585 data\minecraft\tags\items\boats.json
+a0496e18369dcd54cabda06f942580f6c4e6b488 data\minecraft\tags\items\stone_tool_materials.json
+a0496e18369dcd54cabda06f942580f6c4e6b488 data\minecraft\tags\items\stone_crafting_materials.json
+54612adf2538af202d81560775692e81bffc32a4 data\minecraft\tags\items\chest_boats.json

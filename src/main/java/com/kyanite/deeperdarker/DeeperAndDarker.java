@@ -11,6 +11,7 @@ import com.kyanite.deeperdarker.registry.entities.custom.SculkSnapperEntity;
 import com.kyanite.deeperdarker.registry.entities.custom.SculkWormEntity;
 import com.kyanite.deeperdarker.registry.entities.custom.ShatteredEntity;
 import com.kyanite.deeperdarker.registry.items.DDItems;
+import com.kyanite.deeperdarker.registry.potions.DDPotions;
 import com.kyanite.deeperdarker.registry.sounds.DDSounds;
 import com.kyanite.deeperdarker.registry.world.biomes.OthersideBiomes;
 import com.kyanite.deeperdarker.registry.world.dimension.DDDimensions;
@@ -22,10 +23,14 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.kyrptonaught.customportalapi.CustomPortalBlock;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.kyrptonaught.customportalapi.portal.PortalIgnitionSource;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,12 +52,13 @@ public class DeeperAndDarker implements ModInitializer {
         OthersideBiomes.createBiomes();
 
         // Content
+        DDEffects.registerEffects();
+        DDPotions.registerPotions();
         DDEntities.registerEntities();
         DDBlocks.registerBlocks();
         DDItems.registerItems();
         DDSounds.registerSounds();
         DDEnchantments.registerEnchantments();
-        DDEffects.registerEffects();
 
         // Entity attributes
         FabricDefaultAttributeRegistry.register(DDEntities.SHATTERED, ShatteredEntity.attributes());
@@ -70,6 +76,12 @@ public class DeeperAndDarker implements ModInitializer {
                 .forcedSize(20, 6)
                 .registerPortal();
 
+        // Other
+        ComposterBlock.COMPOSTABLES.put(DDBlocks.ECHO_LEAVES.asItem(), 0.3f);
+        ComposterBlock.COMPOSTABLES.put(DDBlocks.SCULK_GLEAM.asItem(), 0.65f);
+        ComposterBlock.COMPOSTABLES.put(DDBlocks.SCULK_VINES.asItem(), 0.5f);
+
+        PotionBrewing.addMix(Potions.INVISIBILITY, DDItems.SOUL_DUST, DDPotions.SCULK_AFFINITY);
         // Spawn placements
         SpawnPlacements.register(DDEntities.SCULK_SNAPPER, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
         SpawnPlacements.register(DDEntities.SHATTERED, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
